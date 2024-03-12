@@ -31,7 +31,7 @@ resource "aws_lambda_function" "ecs_error_detector" {
   ]
   environment {
     variables = {
-      ECS_CLUSTER = var.ecs_cluster_id
+      ECS_CLUSTER   = var.ecs_cluster_id
       SNS_TOPIC_ARN = var.sns_topic_arn
 
     }
@@ -117,14 +117,14 @@ resource "aws_cloudwatch_event_rule" "run_check" {
 }
 
 resource "aws_cloudwatch_event_target" "check_foo_every_five_minutes" {
-    rule = aws_cloudwatch_event_rule.run_check.name
-    arn = aws_lambda_function.ecs_error_detector.arn
+  rule = aws_cloudwatch_event_rule.run_check.name
+  arn  = aws_lambda_function.ecs_error_detector.arn
 }
 
 resource "aws_lambda_permission" "allow_cloudwatch_to_call_check_foo" {
-    statement_id = "AllowExecutionFromCloudWatch"
-    action = "lambda:InvokeFunction"
-    function_name = aws_lambda_function.ecs_error_detector.function_name
-    principal = "events.amazonaws.com"
-    source_arn = aws_cloudwatch_event_rule.run_check.arn
+  statement_id  = "AllowExecutionFromCloudWatch"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.ecs_error_detector.function_name
+  principal     = "events.amazonaws.com"
+  source_arn    = aws_cloudwatch_event_rule.run_check.arn
 }

@@ -19,17 +19,17 @@ variable "log_retention" {
 }
 
 variable "ecs_cluster_id" {
-  type = string
+  type        = string
   description = "ECS cluster id to be monitored"
 }
 
 variable "sns_topic_arn" {
-  type = string
+  type        = string
   description = "SNS topic where errors are sent"
 }
 
 variable "check_cron" {
-  type = string
+  type        = string
   description = "Cron expression when to run checks"
-  default = "rate(1 hour)"
+  default     = "rate(1 hour)"
 }

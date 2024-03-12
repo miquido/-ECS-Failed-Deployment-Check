@@ -1,6 +1,8 @@
-module "this" {
+module "ecs_error_detection" {
   source      = "../../"
-  environment = ""
-  project     = ""
-  webhooks    = [""]
+
+  ecs_cluster_id = "example-cluster"
+  environment = "exammple"
+  project = "example"
+  sns_topic_arn = "arn:aws:sns:eu-central-1:123456789012:example"
 }
