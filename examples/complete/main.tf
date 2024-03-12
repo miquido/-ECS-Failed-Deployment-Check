@@ -1,8 +1,8 @@
 module "ecs_error_detection" {
-  source      = "../../"
+  source = "../../"
 
   ecs_cluster_id = "example-cluster"
-  environment = "exammple"
-  project = "example"
-  sns_topic_arn = "arn:aws:sns:eu-central-1:123456789012:example"
+  environment    = "exammple"
+  project        = "example"
+  sns_topic_arn  = "arn:aws:sns:eu-central-1:123456789012:example"
 }
