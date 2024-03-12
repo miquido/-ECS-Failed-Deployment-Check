@@ -87,9 +87,9 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_check_cron"></a> [check\_cron](#input\_check\_cron) | Cron expression when to run checks | `string` | `"rate(1 hour)"` | no |
 | <a name="input_ecs_cluster_id"></a> [ecs\_cluster\_id](#input\_ecs\_cluster\_id) | ECS cluster id to be monitored | `string` | n/a | yes |
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment name | `any` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment name | `string` | n/a | yes |
 | <a name="input_log_retention"></a> [log\_retention](#input\_log\_retention) | How long to keep logs | `number` | `7` | no |
-| <a name="input_project"></a> [project](#input\_project) | Project name | `any` | n/a | yes |
+| <a name="input_project"></a> [project](#input\_project) | Project name | `string` | n/a | yes |
 | <a name="input_sns_topic_arn"></a> [sns\_topic\_arn](#input\_sns\_topic\_arn) | SNS topic where errors are sent | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Default tags to apply on all created resources | `map(string)` | `{}` | no |
 
