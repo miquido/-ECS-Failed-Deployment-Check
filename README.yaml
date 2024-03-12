@@ -1,0 +1,24 @@
+name: sns-notifications
+repos:
+  gitlab: miquido/terraform/ecs-failed-deployment-check
+badges: [ ]
+related: [ ]
+description: |-
+  Checks ECS cluster if there are failing deployments. Notifies SNS topic when found
+usage: |-
+
+  ```hcl
+    module "ecs_error_detection" {
+      source = "git::https://github.com/miquido/sns-notifications/ecs-failed-deployment-check"
+      ecs_cluster_id = "example-cluster"
+      environment = "exammple"
+      project = "example"
+      sns_topic_arn = "arn:aws:sns:eu-central-1:123456789012:example"
+    }
+  ```
+
+include:
+  - "docs/terraform.md"
+
+# License of this project
+license: "MIT"

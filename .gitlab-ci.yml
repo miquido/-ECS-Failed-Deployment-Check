@@ -1,0 +1,31 @@
+---
+include:
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.89/terraform-toolkit.yml"
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.89/git-toolkit.yml"
+  - remote: "https://raw.githubusercontent.com/miquido/gitlab-templates/1.3.89/gitlab-toolkit.yml"
+
+
+
+get-latest-terraform:
+  extends: .get-latest-terraform
+
+check-formatting:
+  extends: .check-formatting
+
+validate:
+  extends: .validate-terraform
+  variables:
+    ENVIRONMENTS: examples/complete
+
+bump-tag:
+  extends: .bump_minor_tag
+
+docs:
+  extends: .generate_readme
+  stage: .post
+
+push_readme:
+  extends: .push_readme
+  stage: .post
+  dependencies: [ "docs" ]
+  needs: [ "docs" ]
