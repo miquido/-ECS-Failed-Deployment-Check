@@ -5,10 +5,12 @@ variable "tags" {
 }
 
 variable "environment" {
+  type        = string
   description = "Environment name"
 }
 
 variable "project" {
+  type        = string
   description = "Project name"
 }
 
