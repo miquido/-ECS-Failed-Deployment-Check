@@ -31,7 +31,7 @@ resource "aws_lambda_function" "ecs_error_detector" {
   ]
   environment {
     variables = {
-      ECS_CLUSTER   = var.ecs_cluster_id
+      ECS_CLUSTER   = var.ecs_cluster_name
       SNS_TOPIC_ARN = var.sns_topic_arn
 
     }
@@ -93,7 +93,7 @@ data "aws_iam_policy_document" "role_ecs_error_detector" {
     ]
 
     resources = [
-      "arn:aws:ecs:${data.aws_region.default.id}:${data.aws_caller_identity.default.account_id}:service/${var.ecs_cluster_id}/*"
+      "arn:aws:ecs:${data.aws_region.default.id}:${data.aws_caller_identity.default.account_id}:service/${var.ecs_cluster_name}/*"
     ]
   }
 

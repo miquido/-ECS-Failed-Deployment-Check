@@ -20,9 +20,9 @@ variable "log_retention" {
   description = "How long to keep logs"
 }
 
-variable "ecs_cluster_id" {
+variable "ecs_cluster_name" {
   type        = string
-  description = "ECS cluster id to be monitored"
+  description = "ECS cluster name to be monitored"
 }
 
 variable "sns_topic_arn" {
