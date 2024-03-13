@@ -116,12 +116,12 @@ resource "aws_cloudwatch_event_rule" "run_check" {
   tags                = var.tags
 }
 
-resource "aws_cloudwatch_event_target" "check_foo_every_five_minutes" {
+resource "aws_cloudwatch_event_target" "run_check" {
   rule = aws_cloudwatch_event_rule.run_check.name
   arn  = aws_lambda_function.ecs_error_detector.arn
 }
 
-resource "aws_lambda_permission" "allow_cloudwatch_to_call_check_foo" {
+resource "aws_lambda_permission" "run_check" {
   statement_id  = "AllowExecutionFromCloudWatch"
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.ecs_error_detector.function_name
