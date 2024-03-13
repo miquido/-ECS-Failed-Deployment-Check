@@ -29,8 +29,8 @@ def lambda_handler(event, context):
     deployments = list(itertools.chain(*deployments))
     in_progress = list(filter(lambda x: x['rolloutState'] == 'IN_PROGRESS', deployments))
     failing_deployments = list(filter(lambda x: x['failedTasks'] >= 5, in_progress))
-    if failing_deployments == 0:
-        exit(0)
+    if len(failing_deployments) == 0:
+        return
     failing_task_definitions = list(map(lambda x: x['taskDefinition'], failing_deployments))
     message = f"ECS task definitions are failing: {','.join(failing_task_definitions)}"
     sns.publish(
